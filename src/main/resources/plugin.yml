@@ -1,0 +1,7 @@
+name: ManHunt
+main: club.tesseract.manhunt.ManHunt
+version: @version@
+api-version: 1.18
+commanmds:
+  manhunt:
+    description: "Man Hunt Core Command"
