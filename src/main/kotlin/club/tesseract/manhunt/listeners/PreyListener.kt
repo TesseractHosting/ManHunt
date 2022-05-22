@@ -3,6 +3,7 @@ package club.tesseract.manhunt.listeners
 import club.tesseract.manhunt.GameManager
 import club.tesseract.manhunt.ManHunt
 import club.tesseract.manhunt.listeners.utils.ShadowListener
+import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.entity.PlayerDeathEvent
@@ -29,6 +30,7 @@ class PreyListener(plugin: ManHunt) : ShadowListener(plugin) {
 
     @EventHandler
     fun onDamage(event: EntityDamageByEntityEvent){
+        if(event.damager.type != EntityType.PLAYER || event.entity.type != EntityType.PLAYER)return
         if(event.damager.uniqueId == gameManager.prey || event.entity.uniqueId == gameManager.prey)return
         event.isCancelled = true
     }

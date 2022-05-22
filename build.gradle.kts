@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.5.10"
-    id("com.github.johnrengelman.shadow") version "6.1.0"
+    kotlin("jvm") version "1.6.20"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "club.tesseract"
@@ -16,14 +16,14 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("org.reflections:reflections:0.9.12")
+    implementation("org.reflections:reflections:0.10.2")
     compileOnly("me.clip:placeholderapi:2.11.1")
-    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
 }
 tasks {
     withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
-        relocate("kotlin", "com.github.tropicalshadow.tesseractitems.dependencies.kotlin")
-        relocate("org.reflections", "com.github.tropicalshadow.tesseractitems.dependencies.reflections")
+        relocate("kotlin", "com.github.tropicalshadow.manhunt.dependencies.kotlin")
+        relocate("org.reflections", "com.github.tropicalshadow.manhunt.dependencies.reflections")
         exclude("DebugProbesKt.bin")
         exclude("META-INF/**")
     }
